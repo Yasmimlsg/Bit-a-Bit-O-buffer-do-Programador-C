@@ -1,0 +1,50 @@
+/* 
+    Questão : Xupenio Bordões
+    Aluna: Yasmim Lais da Silva Germanio
+    Login: ylsg@cin.ufpe.br
+*/
+#include <stdio.h>
+
+int main() {
+    long long n, a, b;
+    
+   // Entradas 
+    scanf("%lld", &n);
+    scanf("%lld %lld", &a, &b);
+
+    // Soma de todos de 1 até N - PA
+    long long somaN = (1 + n) * n / 2;
+  
+    
+    // Elementos A
+    long long quantidadeA = n / a;
+    long long ultimoA = a * quantidadeA;
+    long long somaA = (a + ultimoA) * quantidadeA / 2;
+    
+       
+    //Elementos B
+    long long quantidadeB = n / b;
+    long long ultimoB = quantidadeB * b;
+    long long somaB = (b + ultimoB) * quantidadeB /2; 
+    
+    // Multiplos AB
+    long long multiAB = a * b;
+    long long quantidadeAB = n / multiAB;
+    long long ultimoAB = multiAB * quantidadeAB;
+    long long somaAB = (multiAB + ultimoAB) * quantidadeAB / 2;
+   
+    
+    
+    long long resultado = somaN - somaA - somaB + somaAB;
+  
+    
+    printf("%lld", resultado);
+    if (resultado % 2 == 0){
+        printf("\nLá ele!!!");
+    } else{
+        printf("\nOpa xupenio AULAS...");
+    }
+    
+    return 0;
+    
+}    
