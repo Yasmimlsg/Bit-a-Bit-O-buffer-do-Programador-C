@@ -1,0 +1,96 @@
+/* 
+    Questão : Numerologia Monalisa 
+    Aluna : Yasmim Laís da Silva Germanio
+    Login : ylsg@cin.ufpe.br
+*/
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+    // Vari?veis N nascimento | A atual
+    int diaN, mesN, anoN, diaA, mesA, anoA;
+    int sumAmor, sumSorte, sumTrabalho, sumCor;
+    
+    scanf("%d/%d/%d %d/%d/%d", &diaN, &mesN, &anoN, &diaA, &mesA, &anoA); // Recebe datas
+
+    // Equa??es
+    
+    sumAmor = ((diaN + mesN + anoN + diaA + mesA + anoA) * 7) % 101;
+    
+    sumSorte = ((diaN + mesN + diaA + mesA) * 9 + abs(anoN - anoA)) % 101; 
+    
+    sumTrabalho = ((anoN + anoA) - (diaN + diaA + mesN + mesA) * 8) % 101;
+    
+    sumCor = ((int)pow(diaN, 2) + (int)pow(diaA, 2) + (int)pow(mesN, 2) + 
+              (int)pow(mesA, 2) + (int)pow(anoN, 2) + (int)pow(anoA, 2)) % 11;
+    
+    // Amor
+    printf("Amor: %d%% ", sumAmor);
+    if (sumAmor < 20 ){
+        printf ("Pessimo dia para se apaixonar.");
+    }   
+    else if (sumAmor >= 20 && sumAmor <= 40){
+        printf ("Melhor manter o coracao <3 longe de perigo.");
+    }   
+    else if (sumAmor >= 41 && sumAmor <= 69){
+        printf ("Se o papo e as ideias baterem, esta liberado pensar em algo.");
+    }   
+    else if (sumAmor >= 70 && sumAmor <= 80){
+        printf("Saia com o coracao aberto, mas lembre, nem toda troca de olhar em onibus e sinal de romance.");
+    }   
+    else {
+        printf("Um dia deslumbrantemente lindo para amar. Ps: Cuidado com a intensidade.");
+    }
+    
+    
+    // Sorte 
+    printf("\nSorte: %d%% ", sumSorte);
+    if (sumSorte < 30){
+        printf ("Nem jogue moedas pra cima hoje.");
+    } 
+    else if (sumSorte >= 30 && sumSorte <= 50){
+        printf("Melhor nao arriscar.");
+    } 
+    else if (sumSorte >= 51 && sumSorte <= 79){
+        printf ("Por sua conta em risco.");
+    } 
+    else if (sumSorte >= 80 && sumSorte <= 90){
+        printf("Hoje vale a pena arriscar.");
+    } 
+    else {
+        printf("Nao tenha medo de virar cartas hoje.");
+    }
+    printf(" Sem tigrinho nem jogos de azar, por favor!");
+
+
+    // Trabalho
+    printf("\nTrabalho: %d%% ", sumTrabalho);
+    if (sumTrabalho < 40){
+        printf("Hoje nao sera um dia tao proveitoso, keep calm e faca o basico.");
+    } 
+    else if(sumTrabalho >= 40 && sumTrabalho <= 50){
+        printf("Segura a emocao, nao xinga ninguem, nao esquece de beber agua.");
+    } 
+    else if (sumTrabalho >= 51 && sumTrabalho <= 69){
+        printf("Um dia proveitoso com certeza, leve sua simpatia consigo.");
+    } 
+    else if(sumTrabalho >= 70 && sumTrabalho <=84){
+        printf("Boas vibracoes hoje, chances podem estar ao seu redor.");
+    }
+    else{
+        printf("Use do maximo de networking possível hoje, dia bom para negocios.");
+    }
+    
+    // Cor 
+    char *cores[] = {"Cinza.", "Vermelho.", "Laranja.", "Amarelo.", "Verde.", 
+                 "Azul.", "Roxo.", "Marrom.", "Rosa.", "Preto.", "Branco."};
+    
+    if(sumCor >= 0 && sumCor <=10 ){
+        printf("\nCor: %s", cores[sumCor]);
+    }
+    
+    return 0;
+}
+
+
